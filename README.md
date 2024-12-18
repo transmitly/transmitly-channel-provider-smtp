@@ -1,27 +1,54 @@
-# Transmitly.ChannelProvider.{Name}
+# Transmitly.ChannelProvider.Smtp
 
-A [Transmitly](https://github.com/transmitly/transmitly) channel provider that {description}.
+A [Transmitly](https://github.com/transmitly/transmitly) channel provider that enables sending Email communications through SMTP using [MailKit](https://github.com/jstedfast/MailKit)
 
 ### Getting started
 
-To use the {Name} channel provider, first install the [NuGet package](https://nuget.org/packages/transmitly.channelprovider.{name}):
+To use the Smtp channel provider, first install the [NuGet package](https://nuget.org/packages/transmitly.channelprovider.smtp):
 
 ```shell
-dotnet add package Transmitly.ChannelProvider.{Name}
+dotnet add package Transmitly.ChannelProvider.Smtp
 ```
 
-Then add the channel provider using `Add{Name}Support()`:
+Then add the channel provider using `AddSmtpSupport()`:
 
 ```csharp
 using Transmitly;
-...
+//...
 var communicationClient = new CommunicationsClientBuilder()
-	.Add{Name}Support(options =>
+.AddMailKitSupport(options =>
+{
+	options.Host = "smtp.test.com";
+	options.Port = 587;
+	options.UseSsl = true;
+	options.UserName = "Test";
+	options.Password = "Password";
+})
+//Pipelines are the heart of Transmitly. Pipelines allow you to define your communications
+//as a domain action. This allows your domain code to stay agnostic to the details of how you
+//may send out a transactional communication.
+.AddPipeline("first-pipeline", pipeline =>
+{
+	//AddEmail is a Channel that is core to the Transmitly library. 
+	//AsAudienceAddress() is also a convience method that helps us create an audience address
+	//Audience addresses can be anything, email, phone, or even a device/app Id for push notifications!
+	pipeline.AddEmail("from@mydomain.com".AsAudienceAddress("My From Display Name"), email =>
 	{
-		
-	})
+		//Transmitly is a bit different. All of our communication content is configured by templates.
+		//Out of the box, we have static or string templates, file and even embedded template support.
+		//There are multiple types of templates to get you started. You can even create templates 
+		//specific to certain cultures!
+		email.Subject.AddStringTemplate("Check out Transmit.ly!");
+		email.HtmlBody.AddStringTemplate("Hey, check out this cool communciations library. <a href=\"https://transmit.ly\">")
+		email.TextBody.AddStringTemplate("Hey, check out this cool communciations library. https://transmitly.ly");
+	});
+})
+.BuildClient();
+
+//Dispatch (send) the transsactional email to our friend Joe (joe@mydomain.com) using our configured SMTP server and our "first-pipeline" pipeline.
+var result = await communicationsClient.DispatchAsync("first-pipeline", "joe@mydomain.com".AsAudienceAddress("Joe"), new { });
 ```
-* See the [Transmitly](https://github.com/transmitly/transmitly) project for more details on what a channel provider is and how it can be configured.
+* Check out the [Transmitly](https://github.com/transmitly/transmitly) project for more details on what a channel provider is and how it can be used to improve how you manage your customer communications.
 
 
 <picture>
@@ -31,4 +58,4 @@ var communicationClient = new CommunicationsClientBuilder()
 
 ---------------------------------------------------
 
-_Copyright &copy; Code Imperssions, LLC - Provided under the [Apache License, Version 2.0](http://apache.org/licenses/LICENSE-2.0.html)._
+_Copyright &copy; Code Impressions, LLC - Provided under the [Apache License, Version 2.0](http://apache.org/licenses/LICENSE-2.0.html)._
