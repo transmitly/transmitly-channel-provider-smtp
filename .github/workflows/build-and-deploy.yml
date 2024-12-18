@@ -13,4 +13,16 @@ jobs:
     with: 
       channelProviderName: Transmitly.ChannelProvider.Smtp
     secrets: inherit
+  build_test_deploy_channel_provider_configuration:
+    uses: transmitly/transmitly/.github/workflows/build-and-deploy-channel-provider.yml@main
+    with: 
+      channelProviderName: Transmitly.ChannelProvider.Smtp.Configuration
+    secrets: inherit
+  build_test_deploy_channel_provider_mailKit:
+    uses: transmitly/transmitly/.github/workflows/build-and-deploy-channel-provider.yml@main
+    with: 
+      channelProviderName: Transmitly.ChannelProvider.Smtp.MailKit
+    secrets: inherit
+      
+      
       
