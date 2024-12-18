@@ -16,7 +16,7 @@ Then add the channel provider using `AddSmtpSupport()`:
 using Transmitly;
 //...
 var communicationClient = new CommunicationsClientBuilder()
-.AddMailKitSupport(options =>
+.AddSmtpSupport(options =>
 {
 	options.Host = "smtp.test.com";
 	options.Port = 587;
