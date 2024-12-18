@@ -20,7 +20,6 @@ var communicationClient = new CommunicationsClientBuilder()
 {
 	options.Host = "smtp.test.com";
 	options.Port = 587;
-	options.UseSsl = true;
 	options.UserName = "Test";
 	options.Password = "Password";
 })
