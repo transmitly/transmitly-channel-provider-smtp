@@ -25,7 +25,7 @@ using Config = Transmitly.ChannelProvider.Smtp.Configuration;
 
 namespace Transmitly.ChannelProvider.Smtp.MailKit
 {
-    public sealed class MailKitChannelProviderClient(Config.SmtpOptions optionObj) : ChannelProviderClient<IEmail>
+    public sealed class MailKitChannelProviderClient(Config.SmtpOptions optionObj) : ChannelProviderDispatcher<IEmail>
     {
         private readonly Config.SmtpOptions _optionObj = Guard.AgainstNull(optionObj);
 
