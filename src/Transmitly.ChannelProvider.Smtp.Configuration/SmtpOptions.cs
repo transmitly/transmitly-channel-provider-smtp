@@ -17,15 +17,15 @@ using System.Text;
 
 namespace Transmitly.ChannelProvider.Smtp.Configuration
 {
-    public sealed class SmtpOptions
-    {
-        public SecureSocketOptions SocketOptions { get; set; }
+	public sealed class SmtpOptions
+	{
+		public SecureSocketOptions SocketOptions { get; set; } = SecureSocketOptions.Auto;
 
-        public string? Host { get; set; }
-        public int? Port { get; set; }
-        public Encoding Encoding { get; set; } = Encoding.UTF8;
-        public ICredentials? Credentials { get; set; }
-        public string? UserName { get; set; }
-        public string? Password { get; set; }
-    }
+		public string? Host { get; set; }
+		public int? Port { get; set; }
+		public Encoding Encoding { get; set; } = Encoding.UTF8;
+		public ICredentials? Credentials { get; set; }
+		public string? UserName { get; set; }
+		public string? Password { get; set; }
+	}
 }
