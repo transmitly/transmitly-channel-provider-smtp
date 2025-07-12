@@ -39,7 +39,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="MailKit" Version="4.9.0" />
+		<PackageReference Include="MailKit" Version="4.13.0" />
 		<PackageReference Include="Transmitly" Version="0.1.0-271.a05261c" />
 	</ItemGroup>
 	<ItemGroup>
@@ -51,5 +51,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Transmitly.ChannelProvider.Smtp.Configuration\Transmitly.ChannelProvider.Smtp.Configuration.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>Transmitly.ChannelProvider.Smtp.MailKitTests</_Parameter1>
+		</AssemblyAttribute>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+		</AssemblyAttribute>
 	</ItemGroup>
 </Project>

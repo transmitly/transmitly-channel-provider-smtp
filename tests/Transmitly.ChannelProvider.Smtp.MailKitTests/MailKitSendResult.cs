@@ -11,32 +11,17 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-
-using System;
-using System.Collections.Generic;
-
-namespace Transmitly.ChannelProvider.Smtp.MailKit
+namespace Transmitly.ChannelProvider.Smtp.Tests
 {
-	internal sealed class MailKitSendResult : IDispatchResult
+	public class MailKitSendResult : IDispatchResult
 	{
-		public string? ResourceId { get; set; }
-
-		public IList<Exception> Exceptions { get; } = [];
-
-		public IList<string> Messages { get; } = [];
-
-		public string? MessageString { get; set; }
-
+		public string ResourceId { get; set; }
+		public string MessageString { get; set; }
 		public string? ChannelProviderId { get; set; }
-		
 		public string? ChannelId { get; set; }
-
-		public Exception? Exception { get; internal set; }
-
-		public CommunicationsStatus Status { get; internal set; }
-
+		public Exception? Exception { get; set; }
+		public CommunicationsStatus Status { get; set; }
 		public string? PipelineId { get; }
-
 		public string? PipelineIntent { get; }
 	}
 }
