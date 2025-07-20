@@ -29,9 +29,9 @@ var communicationClient = new CommunicationsClientBuilder()
 .AddPipeline("first-pipeline", pipeline =>
 {
 	//AddEmail is a Channel that is core to the Transmitly library. 
-	//AsAudienceAddress() is also a convience method that helps us create an audience address
+	//AsIdentityAddress() is also a convience method that helps us create an audience address
 	//Audience addresses can be anything, email, phone, or even a device/app Id for push notifications!
-	pipeline.AddEmail("from@mydomain.com".AsAudienceAddress("My From Display Name"), email =>
+	pipeline.AddEmail("from@mydomain.com".AsIdentityAddress("My From Display Name"), email =>
 	{
 		//Transmitly is a bit different. All of our communication content is configured by templates.
 		//Out of the box, we have static or string templates, file and even embedded template support.
@@ -45,7 +45,7 @@ var communicationClient = new CommunicationsClientBuilder()
 .BuildClient();
 
 //Dispatch (send) the transsactional email to our friend Joe (joe@mydomain.com) using our configured SMTP server and our "first-pipeline" pipeline.
-var result = await communicationsClient.DispatchAsync("first-pipeline", "joe@mydomain.com".AsAudienceAddress("Joe"), new { });
+var result = await communicationsClient.DispatchAsync("first-pipeline", "joe@mydomain.com".AsIdentityAddress("Joe"), new { });
 ```
 * Check out the [Transmitly](https://github.com/transmitly/transmitly) project for more details on what a channel provider is and how it can be used to improve how you manage your customer communications.
 

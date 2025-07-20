@@ -15,6 +15,7 @@
 using System;
 using Transmitly.ChannelProvider.Smtp.Configuration;
 using Transmitly.ChannelProvider.Smtp.MailKit;
+using Transmitly.Util;
 
 namespace Transmitly
 {

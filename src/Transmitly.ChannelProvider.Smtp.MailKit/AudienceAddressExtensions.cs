@@ -13,12 +13,13 @@
 //  limitations under the License.
 
 using MimeKit;
+using Transmitly.Util;
 
 namespace Transmitly.ChannelProvider.Smtp.MailKit
 {
 	internal static class AudienceAddressExtensions
 	{
-		public static MailboxAddress ToMailboxAddress(this IIdentityAddress internetAddress)
+		public static MailboxAddress ToMailboxAddress(this IPlatformIdentityAddress internetAddress)
 		{
 			Guard.AgainstNull(internetAddress);
 

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmitly.ChannelProvider.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmitly.ChannelProvider.Smtp", "src\Transmitly.ChannelProvider.Smtp\Transmitly.ChannelProvider.Smtp.csproj", "{ECF8BB07-34F2-4759-8EAA-9070460539B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmitly.ChannelProvider.Smtp.MailKitTests", "tests\Transmitly.ChannelProvider.Smtp.MailKitTests\Transmitly.ChannelProvider.Smtp.MailKitTests.csproj", "{4C44B207-707D-673E-B87D-B0BC3B6BC853}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ECF8BB07-34F2-4759-8EAA-9070460539B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF8BB07-34F2-4759-8EAA-9070460539B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF8BB07-34F2-4759-8EAA-9070460539B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C44B207-707D-673E-B87D-B0BC3B6BC853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C44B207-707D-673E-B87D-B0BC3B6BC853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C44B207-707D-673E-B87D-B0BC3B6BC853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C44B207-707D-673E-B87D-B0BC3B6BC853}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

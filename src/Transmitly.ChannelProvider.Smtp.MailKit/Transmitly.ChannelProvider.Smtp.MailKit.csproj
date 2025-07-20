@@ -1,8 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
-		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT'">net48;net472</TargetFrameworks>
-		<TargetFrameworks>$(TargetFrameworks);netstandard2.0;net6.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net9.0;net8.0;net6.0;netstandard2.0</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT'">net48;net472;$(TargetFrameworks);</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<IsPackable>true</IsPackable>
@@ -39,8 +42,8 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="MailKit" Version="4.9.0" />
-		<PackageReference Include="Transmitly" Version="0.1.0-271.a05261c" />
+		<PackageReference Include="MailKit" Version="4.13.0" />
+		<PackageReference Include="Transmitly" Version="0.2.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
@@ -51,5 +54,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Transmitly.ChannelProvider.Smtp.Configuration\Transmitly.ChannelProvider.Smtp.Configuration.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>Transmitly.ChannelProvider.Smtp.MailKitTests</_Parameter1>
+		</AssemblyAttribute>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+		</AssemblyAttribute>
 	</ItemGroup>
 </Project>
