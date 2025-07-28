@@ -21,7 +21,7 @@ namespace Transmitly
 {
     public static class SmtpChannelProviderExtensions
     {
-        private const string SmtpId = "Smtp.MailKit";
+        private const string SmtpId = "MailKit";
 
         public static string Smtp(this ChannelProviders channelProviders, string? providerId = null)
         {

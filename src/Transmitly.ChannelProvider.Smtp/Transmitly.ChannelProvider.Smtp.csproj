@@ -44,10 +44,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 		<PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="All" />
-		<PackageReference Include="Transmitly" Version="0.2.0" />
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\Transmitly.ChannelProvider.Smtp.Configuration\Transmitly.ChannelProvider.Smtp.Configuration.csproj" />
-		<ProjectReference Include="..\Transmitly.ChannelProvider.Smtp.MailKit\Transmitly.ChannelProvider.Smtp.MailKit.csproj" />
+		<PackageReference Include="Transmitly" Version="0.2.1" />
+		<PackageReference Include="Transmitly.ChannelProvider.Smtp.Configuration" Version="0.2.1" />
+		<PackageReference Include="Transmitly.ChannelProvider.Smtp.MailKit" Version="0.2.1" />
 	</ItemGroup>
 </Project>
