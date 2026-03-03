@@ -46,12 +46,12 @@ var result = await communicationsClient.DispatchAsync(
 `AddSmtpSupport(options => ...)` accepts `SmtpOptions` from `Transmitly.ChannelProvider.Smtp.Configuration`.
 
 
-| Option | Required (MailKit) | Effective Default | Description |
+| Option | Required | Default | Description |
 | --- | --- | --- | --- |
 | `Host` | Yes | `null` | SMTP server host name. |
-| `Port` | No | `587` (`465` when `SocketOptions = SslOnConnect`) | SMTP server port used for MailKit connect. |
+| `Port` | No | `587` (`465` when `SocketOptions = SslOnConnect`) | SMTP server port. |
 | `SocketOptions` | No | `Auto` | TLS/SSL behavior (`None`, `Auto`, `SslOnConnect`, `StartTls`, `StartTlsWhenAvailable`). |
-| `Encoding` | No | `UTF8` | Encoding used for MailKit authentication. |
+| `Encoding` | No | `UTF8` | Encoding. |
 | `Credentials` | Conditional | `null` | SMTP server credentials. |
 | `UserName` | Conditional | `null` | SMTP server username. |
 | `Password` | Conditional | `null` | SMTP server password. |
