@@ -19,16 +19,32 @@ using Transmitly.Util;
 
 namespace Transmitly
 {
+    /// <summary>
+    /// Provides extension methods for registering and identifying the SMTP channel provider.
+    /// </summary>
     public static class SmtpChannelProviderExtensions
     {
         private const string SmtpId = "MailKit";
 
+        /// <summary>
+        /// Gets the SMTP provider identifier for the specified channel provider collection.
+        /// </summary>
+        /// <param name="channelProviders">The channel provider collection.</param>
+        /// <param name="providerId">An optional provider identifier suffix.</param>
+        /// <returns>The resolved SMTP provider identifier.</returns>
         public static string Smtp(this ChannelProviders channelProviders, string? providerId = null)
         {
             Guard.AgainstNull(channelProviders);
             return channelProviders.GetId(SmtpId, providerId);
         }
 
+        /// <summary>
+        /// Adds SMTP email support to the communications client builder.
+        /// </summary>
+        /// <param name="communicationsClientBuilder">The communications client builder.</param>
+        /// <param name="options">Configures SMTP options for the provider.</param>
+        /// <param name="providerId">An optional provider identifier suffix.</param>
+        /// <returns>The same <see cref="CommunicationsClientBuilder"/> instance.</returns>
         public static CommunicationsClientBuilder AddSmtpSupport(this CommunicationsClientBuilder communicationsClientBuilder, Action<SmtpOptions> options, string? providerId = null)
         {
             var optionObj = new SmtpOptions();
