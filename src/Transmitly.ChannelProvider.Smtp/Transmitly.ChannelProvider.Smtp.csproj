@@ -46,6 +46,6 @@
 		<PackageReference Include="PolySharp" Version="1.16.0" PrivateAssets="All" />
 		<PackageReference Include="Transmitly" Version="0.4.6-2.49f3191" />
 		<PackageReference Include="Transmitly.ChannelProvider.Smtp.Configuration" Version="0.4.6-2.e56eab3" />
-		<PackageReference Include="Transmitly.ChannelProvider.Smtp.MailKit" Version="0.4.6-2.0964cc4" />
+		<PackageReference Include="Transmitly.ChannelProvider.Smtp.MailKit" Version="0.4.6-3.2555613" />
 	</ItemGroup>
 </Project>
